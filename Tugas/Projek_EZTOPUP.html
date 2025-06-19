@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EZ TOPUP ID - Top Up Game</title>
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Coustard:wght@400;900&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: "Coustard", serif;
+            background-color: orange;
+            margin: 0;
+            padding: 0;
+        }
+
+        #submit-btn{
+ font-family: "Coustard", serif;
+color:orange;
+background:black;
+
+}
+        
+        .container {
+           
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+.logo {
+            width: 150px;
+            margin-bottom: 10px;
+        }
+        
+        header {
+            
+            background-color: black;
+            color: orange;
+            padding: 20px 0;
+            text-align: center;
+            padding-top: 2rem;
+          
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .game-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .game-card {
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            border: 2px solid transparent;
+        }
+        
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .game-card.selected {
+            border-color: #FF8C00;
+            background-color: #FFF0E0;
+        }
+        
+        .game-card img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            margin-bottom: 10px;
+        }
+        
+        .topup-form {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-top: 30px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+        
+        button {
+            background: #FF8C00;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background 0.3s;
+            width: 100%;
+        }
+        
+        button:hover {
+            background: #FF7000;
+        }
+        
+        .topup-option {
+            display: inline-block;
+            padding: 10px 15px;
+            margin: 5px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .topup-option:hover {
+            background: #FFE0B2;
+        }
+        
+        .topup-option.selected {
+            background: #FF8C00;
+            color: white;
+            border-color: #FF8C00;
+        }
+        
+        .payment-method {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .payment-method:hover {
+            background: #FFE0B2;
+        }
+        
+        .payment-method.selected {
+            background: #FFE0B2;
+            border-color: #FF8C00;
+        }
+        
+        .payment-method img {
+            width: 30px;
+            margin-right: 10px;
+        }
+        
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="EZ TOPUP ID Logo" class="logo">
+        <h1>EZ TOPUP ID</h1>
+        <p>Top Up Game Mudah dan Cepat</p>
+    </header>
+
+    <div class="container">
+        <h2>Pilih Game Anda:</h2>
+        
+        <div class="game-options">
+            <div class="game-card" data-game="ml">
+                <img src="https://cdn-icons-png.flaticon.com/512/3670/3670157.png" alt="Mobile Legends">
+                <h3>Mobile Legends</h3>
+                <p>Top Up Diamond</p>
+            </div>
+            
+            <div class="game-card" data-game="ff">
+                <img src="https://cdn-icons-png.flaticon.com/512/808/808439.png" alt="Free Fire">
+                <h3>Free Fire</h3>
+                <p>Top Up Diamond</p>
+            </div>
+            
+            <div class="game-card" data-game="pubg">
+                <img src="https://cdn-icons-png.flaticon.com/512/731/731962.png" alt="PUBG Mobile">
+                <h3>PUBG Mobile</h3>
+                <p>Top Up UC</p>
+            </div>
+            
+            <div class="game-card" data-game="gi">
+                <img src="https://cdn-icons-png.flaticon.com/512/2828/2828960.png" alt="Genshin Impact">
+                <h3>Genshin Impact</h3>
+                <p>Top Up Genesis Crystal</p>
+            </div>
+        </div>
+        
+        <div id="topup-form" class="topup-form hidden">
+            <h2 id="selected-game-title">Mobile Legends Top Up</h2>
+            
+            <div class="form-group">
+                <label for="game-id">ID Game:</label>
+                <input type="text" id="game-id" placeholder="Masukkan ID game Anda">
+            </div>
+            
+            <div id="server-group" class="form-group hidden">
+                <label for="server-id">Server ID (Optional):</label>
+                <input type="text" id="server-id" placeholder="Masukkan server ID (jika ada)">
+            </div>
+            
+            <div class="form-group">
+                <label>Pilih Nominal:</label>
+                <div id="topup-options-container">
+                    <!-- Options will be loaded by JavaScript -->
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>Metode Pembayaran:</label>
+                <div id="payment-methods">
+                    <div class="payment-method" data-method="qris">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3663/3663329.png" alt="QRIS">
+                        <span>QRIS</span>
+                    </div>
+                    <div class="payment-method" data-method="dana">
+                        <img src="https://cdn-icons-png.flaticon.com/512/4081/4081547.png" alt="DANA">
+                        <span>DANA</span>
+                    </div>
+                    <div class="payment-method" data-method="ovo">
+                        <img src="https://cdn-icons-png.flaticon.com/512/4081/4081503.png" alt="OVO">
+                        <span>OVO</span>
+                    </div>
+                    <div class="payment-method" data-method="bank">
+                        <img src="https://cdn-icons-png.flaticon.com/512/2535/2535313.png" alt="Bank Transfer">
+                        <span>Transfer Bank</span>
+                    </div>
+                </div>
+            </div>
+            
+            <button id="submit-btn">LANJUTKAN PEMBAYARAN</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const gameCards = document.querySelectorAll('.game-card');
+            const topupForm = document.getElementById('topup-form');
+            const selectedGameTitle = document.getElementById('selected-game-title');
+            const serverGroup = document.getElementById('server-group');
+            const topupOptionsContainer = document.getElementById('topup-options-container');
+            const paymentMethods = document.querySelectorAll('.payment-method');
+            const submitBtn = document.getElementById('submit-btn');
+            
+            // Game data (nominal and prices)
+            const gameData = {
+                ml: {
+                    name: "Mobile Legends",
+                    options: [
+                        { name: "10 Diamonds", price: 3000 },
+                        { name: "50 Diamonds", price: 14000 },
+                        { name: "100 Diamonds", price: 28000 },
+                        { name: "500 Diamonds", price: 140000 },
+                        { name: "1000 Diamonds", price: 280000 }
+                    ],
+                    needsServer: false
+                },
+                ff: {
+                    name: "Free Fire",
+                    options: [
+                        { name: "10 Diamonds", price: 3500 },
+                        { name: "50 Diamonds", price: 15000 },
+                        { name: "100 Diamonds", price: 30000 },
+                        { name: "500 Diamonds", price: 150000 },
+                        { name: "1000 Diamonds", price: 300000 }
+                    ],
+                    needsServer: false
+                },
+                pubg: {
+                    name: "PUBG Mobile",
+                    options: [
+                        { name: "10 UC", price: 4000 },
+                        { name: "50 UC", price: 18000 },
+                        { name: "100 UC", price: 35000 },
+                        { name: "500 UC", price: 180000 },
+                        { name: "1000 UC", price: 350000 }
+                    ],
+                    needsServer: false
+                },
+                gi: {
+                    name: "Genshin Impact",
+                    options: [
+                        { name: "60 Genesis Crystals", price: 15000 },
+                        { name: "300 Genesis Crystals", price: 75000 },
+                        { name: "980 Genesis Crystals", price: 240000 },
+                        { name: "1980 Genesis Crystals", price: 470000 },
+                        { name: "3280 Genesis Crystals", price: 780000 }
+                    ],
+                    needsServer: true
+                }
+            };
+            
+            let selectedGame = null;
+            let selectedNominal = null;
+            let selectedPayment = null;
+            
+            // Handle game selection
+            gameCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    // Remove selected class from all cards
+                    gameCards.forEach(c => c.classList.remove('selected'));
+                    
+                    // Add selected class to clicked card
+                    this.classList.add('selected');
+                    
+                    // Get selected game data
+                    const gameId = this.getAttribute('data-game');
+                    selectedGame = gameData[gameId];
+                    
+                    // Update form
+                    selectedGameTitle.textContent = `${selectedGame.name} Top Up`;
+                    
+                    // Show/hide server field
+                    if (selectedGame.needsServer) {
+                        serverGroup.classList.remove('hidden');
+                    } else {
+                        serverGroup.classList.add('hidden');
+                    }
+                    
+                    // Load top up options
+                    loadTopupOptions(selectedGame.options);
+                    
+                    // Show the form
+                    topupForm.classList.remove('hidden');
+                });
+            });
+            
+            // Load top up options
+            function loadTopupOptions(options) {
+                topupOptionsContainer.innerHTML = '';
+                options.forEach((option, index) => {
+                    const optionElement = document.createElement('div');
+                    optionElement.className = 'topup-option';
+                    optionElement.innerHTML = `
+                        <input type="radio" name="nominal" id="option-${index}" value="${option.price}" data-name="${option.name}">
+                        <label for="option-${index}">${option.name} - Rp ${option.price.toLocaleString()}</label>
+                    `;
+                    optionElement.addEventListener('click', function() {
+                        selectedNominal = {
+                            name: option.name,
+                            price: option.price
+                        };
+                    });
+                    topupOptionsContainer.appendChild(optionElement);
+                });
+            }
+            
+            // Handle payment method selection
+            paymentMethods.forEach(method => {
+                method.addEventListener('click', function() {
+                    paymentMethods.forEach(m => m.classList.remove('selected'));
+                    this.classList.add('selected');
+                    
+                    selectedPayment = this.getAttribute('data-method');
+                    // Capitalize first letter (e.g., "qris" -> "QRIS")
+                    selectedPayment = selectedPayment.charAt(0).toUpperCase() + selectedPayment.slice(1);
+                    if (selectedPayment === "Bank") selectedPayment = "Transfer Bank";
+                });
+            });
+            
+            // Handle form submission
+            submitBtn.addEventListener('click', function() {
+                const gameId = document.getElementById('game-id').value;
+                
+                if (!gameId) {
+                    alert('Harap masukkan ID game Anda');
+                    return;
+                }
+                
+                if (!selectedNominal) {
+                    alert('Harap pilih nominal top up');
+                    return;
+                }
+                
+                if (!selectedPayment) {
+                    alert('Harap pilih metode pembayaran');
+                    return;
+                }
+                
+                const serverId = document.getElementById('server-id').value;
+                
+                // Simple confirmation
+                alert(`Pesanan Anda:
+Game: ${selectedGame.name}
+ID: ${gameId}
+Nominal: ${selectedNominal.name} (Rp ${selectedNominal.price.toLocaleString()})
+Pembayaran: ${selectedPayment}
+
+Terima kasih! Pesanan Anda sedang diproses.`);
+            });
+        });
+    </script>
+</body>
+</html>
